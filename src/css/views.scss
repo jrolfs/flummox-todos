@@ -1,0 +1,112 @@
+
+main {
+  width: 450px;
+  margin: 0 auto;
+  
+  h1 {
+    text-align: center;
+    text-shadow: 1px 1px fade-out(black, 0.75);
+    margin-bottom: 15px;
+  }
+}
+
+.todos-view {
+  background: snow;
+  border-radius: 2px;
+  box-shadow: 1px 1px 7px fade-out(black, 0.8);
+  
+}
+
+.todo-view, .add-todo-view {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  
+  .description, input[type=text] {
+    flex: 1;
+    margin: 0 10px;
+    padding: 20px 0;
+    font-weight: 200;
+  }
+  
+  input[type=text] {
+    background: none;
+    border: none;
+    outline: 0;
+    font-size: 14px;
+  }
+}
+
+.todo-view {
+  border-bottom: 1px solid lighten(black, 85%);
+  
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  .description {
+    color: darken(linen, 80%);
+    font-size: 14px;
+    transition: opacity 0.5s ease-out;
+  }
+  
+  input[type=checkbox]:checked + .description {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+}
+
+.add-todo-view {
+  border-bottom: 1px solid lighten(black, 80%);
+  background: linear-gradient(to top, fade-out(black, 0.95), fade-out(black, 1) 20%);
+
+  .add-todo {
+  }
+}
+
+.todos-list-view {
+  margin: 0;
+  padding: 0;
+}
+
+.todo-footer-view {
+  font-size: 12px;
+  color: fade-out(darken(linen, 70%), 0.2);
+  padding: 10px 20px;
+  border-top: 1px solid lighten(black, 80%);
+  background: linear-gradient(to bottom, fade-out(black, 0.95), fade-out(black, 1) 30%);
+  text-align: center;
+  
+  .filters {
+    a {
+      transition: opacity 0.15s ease-in-out;
+
+      &.selected {
+        text-decoration: underline;
+        cursor: default;
+      }
+
+      &:not(.selected) {
+        opacity: 0.7;
+        
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      margin: 0 3px;
+    }
+    
+    .divider {
+      border-right: 1px solid;
+    }
+  }
+  
+  .remaining {
+    float: left;
+  }
+  
+  .clear-completed {
+    float: right;
+  }
+}

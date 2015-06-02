@@ -1,0 +1,39 @@
+@import './normalize';
+
+body {
+  background: linen;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-weight: 300;
+  color: darken(linen, 60%);
+}
+
+a {
+  color: darken(linen, 50%);
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin placeholder {
+  color: darken(linen, 70%);
+  opacity: 0.3;
+  font-weight: 100;
+}
+ 
+input::-webkit-input-placeholder {
+  @include placeholder;
+}
+input::-moz-placeholder {
+  @include placeholder;
+}
+input:-moz-placeholder {
+  @include placeholder;
+}
+input:-ms-input-placeholder { 
+  @include placeholder;
+}
