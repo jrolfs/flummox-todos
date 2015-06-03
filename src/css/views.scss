@@ -10,11 +10,10 @@ main {
   }
 }
 
-.todos-view {
+.todos-view .body {
   background: snow;
   border-radius: 2px;
   box-shadow: 1px 1px 7px fade-out(black, 0.8);
-  
 }
 
 .todo-view, .add-todo-view {
