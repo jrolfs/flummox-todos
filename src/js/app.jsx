@@ -1,12 +1,10 @@
 
 import React from 'react';
 
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-}
+import Todos from './components/Todos.jsx';
 
 
-export default App;
+React.render(
+  <Todos />,
+  document.getElementsByTagName('main')[0]
+);
