@@ -1,9 +1,9 @@
 
 import React from 'react';
 
-import Header     from './Header.jsx';
-import TodosList  from './TodosList.jsx';
-import Footer     from './Footer.jsx';
+import Header   from './Header.jsx';
+import TodoList from './TodoList.jsx';
+import Footer   from './Footer.jsx';
 
 
 class Todos extends React.Component {
@@ -13,7 +13,7 @@ class Todos extends React.Component {
         <h1>todos</h1>
         <div className="body">
           <Header />
-          <TodosList />
+          <TodoList />
           <Footer />
         </div>
       </div>

@@ -4,7 +4,7 @@ import React from 'react';
 import Input from './Input.jsx';
 
 
-class Todo extends React.Component {
+class TodoItem extends React.Component {
 
   constructor(props) {
     super(props);
@@ -32,9 +32,9 @@ class Todo extends React.Component {
   }
 }
 
-Todo.propTypes = {
+TodoItem.propTypes = {
   todo: React.PropTypes.object.isRequired
 };
 
 
-export default Todo;
+export default TodoItem;

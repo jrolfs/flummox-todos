@@ -1,13 +1,13 @@
 
 import React from 'react';
 
-import Todo from './Todo.jsx';
+import TodoItem from './TodoItem.jsx';
 
 
-class TodosList extends React.Component {
+class TodoList extends React.Component {
   render() {
     const todos = this.props.todos.map(todo => {
-      return <Todo todo={todo} />;
+      return <TodoItem todo={todo} />;
     });
 
     return (
@@ -18,11 +18,11 @@ class TodosList extends React.Component {
   }
 }
 
-TodosList.propTypes = {
+TodoList.propTypes = {
   todos: React.PropTypes.array.isRequired
 };
 
-TodosList.defaultProps = {
+TodoList.defaultProps = {
   todos: [
     { id: 1, description: 'Omg first todo' },
     { id: 1, description: 'This is the second one' },
@@ -31,4 +31,4 @@ TodosList.defaultProps = {
 };
 
 
-export default TodosList;
+export default TodoList;
