@@ -1,13 +1,15 @@
 
 import React from 'react';
 
+import Input from './Input.jsx';
+
 
 class Footer extends React.Component {
   render() {
     return (
       <header className="add-todo-view">
         <input type="checkbox" />
-        <input placeholder="What do you need to do?" type="text" />
+        <Input />
         <button className="add-todo"></button>
       </header>
     );
