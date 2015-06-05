@@ -13,10 +13,15 @@ class Input extends React.Component {
   render() {
     return (
       <input
+        onChange={this.onChange}
         placeholder="What do you need to do?"
         type="text"
         value={this.state.value} />
     );
+  }
+
+  onChange(event) {
+    this.setState({ value: event.target.value });
   }
 }
 
