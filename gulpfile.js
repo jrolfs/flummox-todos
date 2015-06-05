@@ -25,12 +25,14 @@ var build = 'build/';
 
 var src = {
   html: source + 'html/**/*.html',
+  svg: source + 'svg/**/*.svg',
   scss: source + 'css/**/*.scss',
   js: source + 'js/main.js'
 };
 
 var out = {
   html: build,
+  svg: build + 'svg/',
   css: build + 'css/',
   js: build + 'js/'
 };
@@ -72,6 +74,11 @@ gulp.task('html', function () {
     .pipe(gulp.dest(out.html));
 });
 
+gulp.task('svg', function () {
+  return gulp.src(src.svg)
+    .pipe(gulp.dest(out.svg));
+});
+
 gulp.task('normalize', function () {
   var main = require('normalize.css/package.json').main;
 
@@ -101,9 +108,9 @@ gulp.task('clean', function () {
   return del(['build/**/*']);
 });
 
-gulp.task('serve', ['html', 'sass', 'browserify'], function () {
+gulp.task('serve', ['html', 'svg', 'sass', 'browserify'], function () {
   browserSync({ server: build });
 
   gulp.watch(src.scss, ['sass']);
-  gulp.watch(src.html).on('change', browserSync.reload);
+  gulp.watch([src.html, src.svg]).on('change', browserSync.reload);
 });
