@@ -16,7 +16,7 @@ main {
   box-shadow: 1px 1px 7px fade-out(black, 0.8);
 }
 
-.todo-view, .add-todo-view {
+.todo-item-view, .header-view {
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -36,7 +36,7 @@ main {
   }
 }
 
-.todo-view {
+.todo-item-view {
   border-bottom: 1px solid lighten(black, 85%);
   
   &:last-child {
@@ -99,7 +99,7 @@ main {
   padding: 0;
 }
 
-.todo-footer-view {
+.footer-view {
   font-size: 12px;
   color: fade-out(darken(linen, 70%), 0.2);
   padding: 10px 20px;
