@@ -53,13 +53,44 @@ main {
     text-decoration: line-through;
     opacity: 0.5;
   }
+
+  .remove-todo {
+    margin-left: 10px;
+  }
+
+  .edit-todo, .remove-todo {
+    opacity: 0.25;
+    transition: opacity 0.25s ease-in-out;
+  }
+
+  &:hover {
+    .edit-todo, .remove-todo {
+      opacity: 0.75;
+    }
+  }
+
+  .edit-todo, .remove-todo {
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
-.add-todo-view {
+.header-view {
   border-bottom: 1px solid lighten(black, 80%);
   background: linear-gradient(to top, fade-out(black, 0.95), fade-out(black, 1) 20%);
 
+  .check {
+    filter: drop-shadow(1px 1px fade-out(black, 0.75));
+  }
+
   .add-todo {
+    opacity: 0.25;
+    transition: opacity 0.25s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 

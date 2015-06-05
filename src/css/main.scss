@@ -19,6 +19,17 @@ a {
   }
 }
 
+svg.icon {
+  height: 24px;
+  fill: darken(linen, 70%);
+}
+
+button.icon {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
 @mixin placeholder {
   color: darken(linen, 70%);
   opacity: 0.3;
