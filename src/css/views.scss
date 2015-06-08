@@ -98,7 +98,15 @@ main {
 
   .add-todo {
     opacity: 0.25;
-    transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  &:not(.has-value) .add-todo:hover {
+    cursor: default;
+  }
+
+  &.has-value .add-todo {
+    opacity: 0.65;
 
     &:hover {
       opacity: 1;
