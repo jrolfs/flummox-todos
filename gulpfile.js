@@ -43,7 +43,10 @@ var out = {
 
 var bundler = watchify(browserify(src.js, assign(watchify.args, { debug: true })));
 
-bundler.transform(babelify.configure({ compact: false }));
+bundler.transform(babelify.configure({
+  compact: false,
+  optional: ['es7.decorators']
+}));
 
 function bundle() {
 

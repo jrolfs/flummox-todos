@@ -1,5 +1,6 @@
 
-import React from 'react';
+import React    from 'react';
+import autobind from 'autobind-decorator';
 
 
 class Input extends React.Component {
@@ -20,6 +21,7 @@ class Input extends React.Component {
     );
   }
 
+  @autobind
   onChange(event) {
     this.setState({ value: event.target.value });
   }
