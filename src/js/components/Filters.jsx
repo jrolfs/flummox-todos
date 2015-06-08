@@ -5,7 +5,7 @@ import React from 'react';
 class Filters extends React.Component {
   render() {
     return (
-      <span className="filters">
+      <span className="filters-view">
         <a className="selected" data-filter="all" href="all">all</a>
         <span className="divider"></span>
         <a data-filter="active" href="active">active</a>
