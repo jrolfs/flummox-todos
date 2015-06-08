@@ -23,12 +23,17 @@ class Input extends React.Component {
 
   @autobind
   onChange(event) {
-    this.setState({ value: event.target.value });
+    const value = event.target.value;
+
+    this.setState({ value: value });
+
+    this.props.onChange(value);
   }
 }
 
 Input.propTypes = {
-  initialValue: React.PropTypes.string
+  initialValue: React.PropTypes.string,
+  onChange: React.PropTypes.func
 };
 
 
