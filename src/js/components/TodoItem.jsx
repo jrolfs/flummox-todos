@@ -1,8 +1,9 @@
 
 import React from 'react';
 
-import Input from './Input.jsx';
-import Icon  from './Icon.jsx';
+import Input    from './Input.jsx';
+import Icon     from './Icon.jsx';
+import Checkbox from './Checkbox.jsx';
 
 
 class TodoItem extends React.Component {
@@ -25,7 +26,7 @@ class TodoItem extends React.Component {
 
     return (
       <li className="todo-item-view">
-        <input type="checkbox" />
+        <Checkbox />
         {content}
         <button className="edit-todo icon">
           <Icon name="icon-cog" />

@@ -30,6 +30,36 @@ button.icon {
   padding: 0;
 }
 
+label.checkbox {
+  border: 2px solid darken(linen, 70%);
+  border-radius: 3px;
+  width: 14px;
+  height: 14px;
+  overflow: hidden;
+  cursor: pointer;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    transform: translateX(100%);
+    transition: all 0.25s ease-out;
+    opacity: 0.5;
+  }
+
+  &:hover svg {
+    transform: translateX(0);
+  }
+
+  input[type=checkbox] {
+    display: none;
+
+    &:checked + svg {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
 @mixin placeholder {
   color: darken(linen, 70%);
   opacity: 0.3;

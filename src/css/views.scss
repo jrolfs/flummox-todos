@@ -49,7 +49,7 @@ main {
     transition: opacity 0.5s ease-out;
   }
   
-  input[type=checkbox]:checked + .description {
+  label.checkbox.is-checked + .description {
     text-decoration: line-through;
     opacity: 0.5;
   }
@@ -60,12 +60,12 @@ main {
 
   .edit-todo, .remove-todo {
     opacity: 0.25;
-    transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.15s ease-in-out;
   }
 
   &:hover {
     .edit-todo, .remove-todo {
-      opacity: 0.75;
+      opacity: 0.65;
     }
   }
 
