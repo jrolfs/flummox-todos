@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "autobind-decorator": "^1.2.0",
+    "classnames": "^2.1.2",
     "normalize.css": "^3.0.3",
     "react": "^0.13.3"
   },
