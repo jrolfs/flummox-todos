@@ -1,15 +1,17 @@
 
-import React from 'react';
+import React      from 'react';
+import classNames from 'classnames';
 
 
 class Icon extends React.Component {
   render() {
     const useTag = `<use xlink:href="/svg/icons.svg#${this.props.name}"></use>`;
-    const className = `icon ${this.props.className}`;
+    const className = this.props.className;
+    const classes = className && className.split(' ');
 
     return (
       <svg
-        className={className}
+        className={classNames('icon', classes)}
         dangerouslySetInnerHTML={{ __html: useTag }}
         viewBox="0 0 100 100" />
     );
