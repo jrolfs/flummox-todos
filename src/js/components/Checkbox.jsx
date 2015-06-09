@@ -8,11 +8,18 @@ import Icon from './Icon.jsx';
 
 class Checkbox extends React.Component {
 
+  // 
+  // Init
+
   constructor(props) {
     super(props);
 
     this.state = { isChecked: false };
   }
+
+
+  //
+  // Lifecycle
 
   render() {
     return (
@@ -25,6 +32,10 @@ class Checkbox extends React.Component {
       </label>
     );
   }
+
+
+  //
+  // Events
 
   @autobind
   onChange(event) {

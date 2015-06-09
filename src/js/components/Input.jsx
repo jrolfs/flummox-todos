@@ -5,11 +5,17 @@ import autobind from 'autobind-decorator';
 
 class Input extends React.Component {
 
+  //
+  // Init
+
   constructor(props) {
     super(props);
 
     this.state = { value: props.initialValue || '' };
   }
+
+
+  // Lifecycle
 
   render() {
     return (
@@ -20,6 +26,10 @@ class Input extends React.Component {
         value={this.state.value} />
     );
   }
+
+
+  //
+  // Events
 
   @autobind
   onChange(event) {

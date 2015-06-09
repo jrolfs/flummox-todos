@@ -9,11 +9,18 @@ import Icon  from './Icon.jsx';
 
 class Header extends React.Component {
 
+  //
+  // Init
+
   constructor(props) {
     super(props);
 
     this.state = { hasValue: false };
   }
+
+
+  //
+  // Lifecycle
 
   render() {
     return (
@@ -26,6 +33,10 @@ class Header extends React.Component {
       </header>
     );
   }
+
+
+  //
+  // Events
 
   @autobind
   onChange(value) {

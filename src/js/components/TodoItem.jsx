@@ -8,11 +8,18 @@ import Checkbox from './Checkbox.jsx';
 
 class TodoItem extends React.Component {
 
+  //
+  // Init
+
   constructor(props) {
     super(props);
 
     this.state = { isEditing: false };
   }
+
+
+  //
+  // Lifecycle
 
   render () {
     var content;
