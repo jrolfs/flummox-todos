@@ -1,4 +1,5 @@
 
+import _          from 'lodash';
 import React      from 'react';
 import autobind   from 'autobind-decorator';
 import classNames from 'classnames';
@@ -39,9 +40,17 @@ class Checkbox extends React.Component {
 
   @autobind
   onChange(event) {
-    this.setState({ isChecked: event.target.checked });
+    const isChecked = event.target.checked;
+
+    this.setState({ isChecked: isChecked });
+
+    if (_.isFunction(this.props.onChange)) this.props.onChange(isChecked);
   }
 }
+
+Checkbox.propTypes = {
+  onChange: React.PropTypes.func
+};
 
 
 export default Checkbox;
