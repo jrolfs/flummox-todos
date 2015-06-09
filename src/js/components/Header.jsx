@@ -26,7 +26,8 @@ class Header extends React.Component {
     return (
       <header className={classNames('header-view',  { 'has-value': this.state.hasValue })}>
         <Icon className="check" name="icon-check" />
-        <Input onChange={this.onChange} />
+        <Input
+          placeholder="What do you need to do?" />
         <button className="add-todo icon">
           <Icon name="icon-plus" />
         </button>

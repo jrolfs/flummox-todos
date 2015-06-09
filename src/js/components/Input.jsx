@@ -22,6 +22,7 @@ class Input extends React.Component {
       <input
         onChange={this.onChange}
         placeholder="What do you need to do?"
+        placeholder={this.props.placeholder}
         type="text"
         value={this.state.value} />
     );
@@ -44,6 +45,7 @@ class Input extends React.Component {
 Input.propTypes = {
   initialValue: React.PropTypes.string,
   onChange: React.PropTypes.func
+  placeholder: React.PropTypes.string
 };
 
 
