@@ -31,8 +31,6 @@ main {
   
   .description, input[type=text] {
     flex: 1;
-    margin: 0 10px;
-    padding: 20px 0;
     font-weight: 200;
   }
   
@@ -59,6 +57,27 @@ main {
     color: darken(linen, 80%);
     font-size: 14px;
     transition: opacity 0.5s ease-out;
+    margin: 20px 15px;
+  }
+
+  input[type=text] {
+    margin: 14px 9px;
+    border: 1px dashed fade-out(darken(linen, 70%), 0.5);
+    padding: 5px;
+    border-radius: 2px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes "pulse" {
+    0% {
+      border-color: fade-out(darken(linen, 70%), 0.85);
+    }
+    50% {
+      border-color: fade-out(darken(linen, 70%), 0.5);
+    }
+    100% {
+      border-color: fade-out(darken(linen, 70%), 0.85);
+   }
   }
   
   label.checkbox.is-checked + .description {
@@ -70,18 +89,18 @@ main {
     margin-left: 10px;
   }
 
-  .edit-todo, .remove-todo {
+  button.icon {
     opacity: 0.25;
     transition: opacity 0.15s ease-in-out;
   }
 
   &:hover {
-    .edit-todo, .remove-todo {
+    button.icon {
       opacity: 0.65;
     }
   }
 
-  .edit-todo, .remove-todo {
+  button.icon {
     &:hover {
       opacity: 1;
     }
@@ -98,6 +117,11 @@ main {
 
   .check {
     filter: drop-shadow(1px 1px fade-out(black, 0.75));
+  }
+
+  input[type=text] {
+    margin: 0 10px;
+    padding: 20px 0;
   }
 
   .add-todo {

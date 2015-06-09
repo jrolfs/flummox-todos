@@ -1,6 +1,8 @@
 
+import _        from 'lodash';
 import React    from 'react';
 import autobind from 'autobind-decorator';
+import keycode  from 'keycode';
 
 
 class Input extends React.Component {
@@ -20,12 +22,26 @@ class Input extends React.Component {
   render() {
     return (
       <input
+        autoFocus={true}
         onChange={this.onChange}
-        placeholder="What do you need to do?"
+        onKeyDown={this.onKeyDown}
         placeholder={this.props.placeholder}
+        ref="input"
         type="text"
         value={this.state.value} />
     );
+  }
+
+
+  //
+  // Control
+
+  select() {
+    React.findDOMNode(this.refs.input).select(...arguments);
+  }
+
+  getValue() {
+    return this.state.value;
   }
 
 
@@ -38,13 +54,21 @@ class Input extends React.Component {
 
     this.setState({ value: value });
 
-    this.props.onChange(value);
+    if (_.isFunction(this.props.onChange)) this.props.onChange(value);
+  }
+
+  @autobind
+  onKeyDown(event) {
+    if (keycode(event) === 'enter') {
+      if (_(this.props.onEnter).isFunction()) this.props.onEnter();
+    }
   }
 }
 
 Input.propTypes = {
   initialValue: React.PropTypes.string,
-  onChange: React.PropTypes.func
+  onChange: React.PropTypes.func,
+  onEnter: React.PropTypes.func,
   placeholder: React.PropTypes.string
 };
 

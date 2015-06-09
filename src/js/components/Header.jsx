@@ -25,8 +25,11 @@ class Header extends React.Component {
   render() {
     return (
       <header className={classNames('header-view',  { 'has-value': this.state.hasValue })}>
-        <Icon className="check" name="icon-check" />
+        <Icon
+          className="check"
+          name="icon-check" />
         <Input
+          onChange={this.onInputChange}
           placeholder="What do you need to do?" />
         <button className="add-todo icon">
           <Icon name="icon-plus" />
@@ -37,10 +40,18 @@ class Header extends React.Component {
 
 
   //
+  // Control
+
+  save() {
+    // TODO: create todo action
+  }
+
+
+  //
   // Events
 
   @autobind
-  onChange(value) {
+  onInputChange(value) {
     this.setState({ hasValue: !!value });
   }
 }
