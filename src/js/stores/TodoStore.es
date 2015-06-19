@@ -1,6 +1,6 @@
 
-import { Store } from 'flummox';
-import Immutable from 'immutable';
+import { Store }      from 'flummox';
+import { OrderedMap } from 'immutable';
 
 
 export default class TodoStore extends Store {
@@ -15,7 +15,7 @@ export default class TodoStore extends Store {
     this.register(actions.update, this.onCreate);
     this.register(actions.destroy, this.onDestroy);
 
-    this.state = { todos: new Immutable.Map() };
+    this.state = { todos: new OrderedMap() };
   }
 
 
