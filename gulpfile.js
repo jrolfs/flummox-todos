@@ -112,7 +112,10 @@ gulp.task('clean', function () {
 });
 
 gulp.task('serve', ['html', 'svg', 'sass', 'browserify'], function () {
-  browserSync({ server: build });
+  browserSync({
+    server: build,
+    browser: 'google chrome canary'
+  });
 
   gulp.watch(src.scss, ['sass']);
   gulp.watch([src.html, src.svg]).on('change', browserSync.reload);
