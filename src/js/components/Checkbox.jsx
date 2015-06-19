@@ -1,5 +1,5 @@
 
-import _          from 'lodash';
+import isFunction from 'is-function';
 import React      from 'react';
 import autobind   from 'autobind-decorator';
 import classNames from 'classnames';
@@ -9,13 +9,13 @@ import Icon from './Icon.jsx';
 
 class Checkbox extends React.Component {
 
-  // 
+  //
   // Init
 
   constructor(props) {
     super(props);
 
-    this.state = { isChecked: false };
+    this.state = { isChecked: props.initiallyChecked || false };
   }
 
 
@@ -44,11 +44,12 @@ class Checkbox extends React.Component {
 
     this.setState({ isChecked: isChecked });
 
-    if (_.isFunction(this.props.onChange)) this.props.onChange(isChecked);
+    if (isFunction(this.props.onChange)) this.props.onChange(isChecked);
   }
 }
 
 Checkbox.propTypes = {
+  initiallyChecked: React.PropTypes.bool,
   onChange: React.PropTypes.func
 };
 

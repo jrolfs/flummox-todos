@@ -9,10 +9,14 @@
   "dependencies": {
     "autobind-decorator": "^1.2.0",
     "classnames": "^2.1.2",
-    "lodash": "^3.9.3",
+    "flummox": "^3.5.2",
+    "immutable": "^3.7.4",
+    "is-function": "^1.0.1",
     "keycode": "^2.1.0",
     "normalize.css": "^3.0.3",
-    "react": "^0.13.3"
+    "react": "^0.13.3",
+    "react-immutable-proptypes": "^1.0.0",
+    "shortid": "^2.2.2"
   },
   "devDependencies": {
     "babelify": "^6.1.2",

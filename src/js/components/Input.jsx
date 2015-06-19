@@ -1,8 +1,8 @@
 
-import _        from 'lodash';
-import React    from 'react';
-import autobind from 'autobind-decorator';
-import keycode  from 'keycode';
+import isFunction from 'is-function';
+import React      from 'react';
+import autobind   from 'autobind-decorator';
+import keycode    from 'keycode';
 
 
 class Input extends React.Component {
@@ -44,6 +44,10 @@ class Input extends React.Component {
     return this.state.value;
   }
 
+  clear() {
+    return this.setState({ value: '' });
+  }
+
 
   //
   // Events
@@ -54,13 +58,13 @@ class Input extends React.Component {
 
     this.setState({ value: value });
 
-    if (_.isFunction(this.props.onChange)) this.props.onChange(value);
+    if (isFunction(this.props.onChange)) this.props.onChange(value);
   }
 
   @autobind
   onKeyDown(event) {
     if (keycode(event) === 'enter') {
-      if (_(this.props.onEnter).isFunction()) this.props.onEnter();
+      if (isFunction(this.props.onEnter)) this.props.onEnter();
     }
   }
 }

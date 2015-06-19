@@ -15,6 +15,8 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
 
+    this.actions = props.flux.getActions('todos');
+
     this.state = { hasValue: false };
   }
 
@@ -30,8 +32,12 @@ class Header extends React.Component {
           name="icon-check" />
         <Input
           onChange={this.onInputChange}
-          placeholder="What do you need to do?" />
-        <button className="add-todo icon">
+          onEnter={this.onInputEnter}
+          placeholder="What do you need to do?"
+          ref="input" />
+        <button
+          className="add-todo icon"
+          onClick={this.onAddTodoClick}>
           <Icon name="icon-plus" />
         </button>
       </header>
@@ -43,7 +49,14 @@ class Header extends React.Component {
   // Control
 
   save() {
-    // TODO: create todo action
+    const input = this.refs.input;
+
+    this.actions.create({
+      completed: false,
+      description: input.getValue()
+    });
+
+    input.clear();
   }
 
 
@@ -53,6 +66,16 @@ class Header extends React.Component {
   @autobind
   onInputChange(value) {
     this.setState({ hasValue: !!value });
+  }
+
+  @autobind
+  onInputEnter() {
+    this.save();
+  }
+
+  @autobind
+  onAddTodoClick() {
+    this.save();
   }
 }
 

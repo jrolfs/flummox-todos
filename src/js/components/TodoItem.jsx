@@ -16,6 +16,8 @@ class TodoItem extends React.Component {
   constructor(props) {
     super(props);
 
+    this.actions = props.flux.getActions('todos');
+
     this.state = { isEditing: false };
   }
 
@@ -26,30 +28,35 @@ class TodoItem extends React.Component {
   render () {
     var content;
 
-    const todo = this.props.todo;
     const isEditing = this.state.isEditing;
+    const todo = this.props.todo;
 
     if (isEditing) {
       content = (
         <Input
-          initialValue={todo.description}
+          initialValue={todo.get('description')}
           onAdd={this.onAdd}
           ref="input" />
       );
     } else {
-      content = <span className="description">{todo.description}</span>;
+      content = <span className="description">{todo.get('description')}</span>;
     }
 
     return (
       <li className={classNames('todo-item-view', { 'is-editing': isEditing })}>
-        <Checkbox onChange={this.onCheckboxChange} />
+        <Checkbox
+          initiallyChecked={todo.get('completed')}
+          onChange={this.onCheckboxChange} />
         {content}
         <button
           className={`${isEditing ? 'save' : 'edit'}-todo icon`}
           onClick={isEditing ? this.onSaveClick : this.onEditClick}>
           <Icon name={`icon-${isEditing ? 'circle-check' : 'cog'}`} />
         </button>
-        <button className="remove-todo icon"> <Icon name="icon-trash" />
+        <button
+          className="remove-todo icon"
+          onClick={this.onRemoveClick}>
+          <Icon name="icon-trash" />
         </button>
       </li>
     );
@@ -59,8 +66,8 @@ class TodoItem extends React.Component {
   //
   // Control
 
-  save() {
-    // TODO: update todo action
+  save(attributes) {
+    this.actions.update(Object.assign({ id: this.props.todo.get('id') }, attributes));
   }
 
 
@@ -69,7 +76,7 @@ class TodoItem extends React.Component {
 
   @autobind
   onCheckboxChange(isChecked) {
-    this.save({ complete: isChecked });
+    this.save({ completed: isChecked });
   }
 
   @autobind
@@ -82,6 +89,13 @@ class TodoItem extends React.Component {
   @autobind
   onSaveClick() {
     this.save({ description: this.refs.input.getValue() });
+
+    this.setState({ isEditing: false });
+  }
+
+  @autobind
+  onRemoveClick() {
+    this.actions.destroy(this.props.todo.get('id'));
   }
 }
 
